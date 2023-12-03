@@ -1,3 +1,37 @@
+
+# glMatrix for Workers
+This fork are a solution for usage of glMatrix in Web Workers using the `importScripts()`
+
+## How this work?
+Simple instead of exporting as a module are created a object like the module with methods.
+
+## Usage:
+
+#### Example of Worker:
+
+worker.js:
+
+```js
+// importing script on creation of worker.
+
+// Considering are at same folder
+importScripts("./glMatrix.js");
+
+// Create object
+const glm = glmatrix();
+
+onmessage = (e) => {
+    let r = glm.glMatrix.toRadian(e.data);
+    postMessage(r);
+}
+```
+
+## Reminders:
+
+This is a not best to do that. But it´s very similar a module.
+
+If you have better way you can send a pull request.
+
 glMatrix
 =======================
 [![NPM Version](https://img.shields.io/npm/v/gl-matrix.svg)](https://www.npmjs.com/package/gl-matrix)
