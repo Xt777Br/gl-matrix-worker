@@ -9,15 +9,6 @@
 		</canvas>
 		<br />
 		<i>Demo is above this text</i>
-		<script>
-			const canvas = document.getElementById("screen");
-			var workerData = new Blob([document.getElementById('worker').textContent], {
-    type: "text/javascript"
-});
-			var thread = new Worker(window.URL.createObjectURL(workerData));
-			let offscreen = this.canvas.transferControlToOffscreen();
-			this.thread.postMessage({canvas: offscreen}, [offscreen]);
-		</script>
 		<script id="worker">
 			self.importScripts("./gl-matrix-min.js");
 			const glm = glmatrix();
@@ -248,6 +239,15 @@ var InitDemo = function () {
 	};
 	requestAnimationFrame(loop);
 };
+		</script>
+		<script>
+			const canvas = document.getElementById("screen");
+			var workerData = new Blob([document.getElementById('worker').textContent], {
+    type: "text/javascript"
+});
+			var thread = new Worker(window.URL.createObjectURL(workerData));
+			let offscreen = this.canvas.transferControlToOffscreen();
+			this.thread.postMessage({canvas: offscreen}, [offscreen]);
 		</script>
 	</body>
 </html>
