@@ -23,7 +23,7 @@ if( 'function' === typeof importScripts) {
         console.log("Renderer Thread Initializing...");
         canvas = data.canvas;
         gl = canvas.getContext("webgl");
-        if(!gl) {console.error("RendererError: \n\nwebgl2 not supported!"); return -1;}
+        if(!gl) {console.error("RendererError: \n\nwebgl not supported!"); return -1;}
 				initDemo()
     	}
    }    
@@ -242,6 +242,7 @@ function initDemo () {
 		gl.clear(gl.DEPTH_BUFFER_BIT | gl.COLOR_BUFFER_BIT);
 		gl.drawElements(gl.TRIANGLES, boxIndices.length, gl.UNSIGNED_SHORT, 0);
 
+		console.log("a")
 		requestAnimationFrame(loop);
 	};
 	requestAnimationFrame(loop);
