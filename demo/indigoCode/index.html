@@ -2,7 +2,7 @@
 	<head>
 		<title>WebGL - Rotating Cube</title>
 	</head>
-	<body onload="InitDemo();">
+	<body>
 		<a href="https://github.com/sessamekesh/IndigoCS-webgl-tutorials/tree/master/02%20-%20Rotating%20Cube" height="10vh">Original Code</a>
 		<canvas id="game-surface" width="800" height="600">
 			Your browser does not support HTML5
@@ -19,7 +19,7 @@
 			this.thread.postMessage({canvas: offscreen}, [offscreen]);
 		</script>
 		<script id="worker">
-			importScripts("./gl-matrix-min.js");
+			self.importScripts("./gl-matrix-min.js");
 			const glm = glmatrix();
 			var vertexShaderText = 
 [
