@@ -12,7 +12,7 @@
 		<i>Demo is above this text</i>
 		<script id="worker">
 			importScripts("https://xt777br.github.io/gl-matrix-worker/dist/gl-matrix.js");
-			var gl;
+			var gl; var canvas;
 			const glm = glmatrix();
 			var vertexShaderText = 
 [
@@ -48,7 +48,7 @@ onmessage = (e) => {
     if(gl == undefined){
         // Initialize on first message
         console.log("Renderer Thread Initializing...");
-        const canvas = data.canvas;
+        canvas = data.canvas;
         gl = canvas.getContext("webgl");
         if(!gl) {console.error("RendererError: \n\nwebgl2 not supported!"); return -1;}
 	initDemo()
