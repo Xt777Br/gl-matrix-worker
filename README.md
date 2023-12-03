@@ -1,4 +1,3 @@
-
 # glMatrix for Workers
 This fork are a solution for usage of glMatrix in Web Workers using the `importScripts()`
 
@@ -7,7 +6,9 @@ Simple instead of exporting as a module are created a object like the module wit
 
 ## Usage:
 
-#### Example of Worker:
+### Examples of Workers:
+
+#### 1º Example: Using in Vite
 
 worker.js:
 
@@ -25,6 +26,39 @@ onmessage = (e) => {
     postMessage(r);
 }
 ```
+
+#### 2º Example: Pure HTML Javascript
+
+```js
+var glm;
+var gl;
+var canvas;
+
+if( 'function' === typeof importScripts) {
+    importScripts("./gl-matrix.js");
+    glm = glmatrix();
+    addEventListener('message', onMessage);
+    function onMessage(e) { 
+        data = e.data
+        if(gl == undefined){
+        // Initialize on first message
+            console.log("Renderer Thread Initializing...");
+            canvas = data.canvas;
+            gl = canvas.getContext("webgl2");
+            if(!gl) {console.error("RendererError: \n\nwebgl not supported!"); return -1;}
+			initDemo()
+    	}
+    }    
+}
+
+function initDemo(){
+    // Your webgl application!
+}
+
+// See more of code in demo!
+```
+
+
 
 ## Demo using with offscreen Canvas and worker.
 ### In this demo are a 3D cube running inside of worker using glMatrix!
