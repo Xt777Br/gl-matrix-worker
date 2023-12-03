@@ -247,8 +247,8 @@ var InitDemo = function () {
     type: "text/javascript"
 });
 			var thread = new Worker(window.URL.createObjectURL(workerData));
-			let offscreen = this.canvas.transferControlToOffscreen();
-			this.thread.postMessage({canvas: offscreen}, [offscreen]);
+			let offscreen = canvas.transferControlToOffscreen();
+			thread.postMessage({canvas: offscreen}, [offscreen]);
 			}
 		</script>
 	</body>
