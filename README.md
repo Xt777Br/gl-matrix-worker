@@ -5,11 +5,6 @@ This fork are a solution for usage of glMatrix in Web Workers using the `importS
 ## How this work?
 Simple instead of exporting as a module are created a object like the module with methods.
 
-## Files Working:
-
-/dist/gl-matrix.js
-/dist/gl-matrix-min.js
-
 ## Usage:
 
 #### Example of Worker:
@@ -30,6 +25,14 @@ onmessage = (e) => {
     postMessage(r);
 }
 ```
+
+## Demo using with offscreen Canvas and worker.
+### In this demo are a 3D cube running inside of worker using glMatrix!
+
+https://xt777br.github.io/gl-matrix-worker/demo/indigoCode/index.html
+
+#### Original code from https://github.com/sessamekesh/IndigoCS-webgl-tutorials/tree/master/02%20-%20Rotating%20Cube
+
 
 ## Reminders:
 
