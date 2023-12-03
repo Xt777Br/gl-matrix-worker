@@ -45,8 +45,8 @@ if( 'function' === typeof importScripts) {
             console.log("Renderer Thread Initializing...");
             canvas = data.canvas;
             gl = canvas.getContext("webgl2");
-            if(!gl) {console.error("RendererError: \n\nwebgl not supported!"); return -1;}
-			initDemo()
+            if(!gl) {console.error("RendererError: \n\nwebgl not supported!");}
+	    initDemo()
     	}
     }    
 }
