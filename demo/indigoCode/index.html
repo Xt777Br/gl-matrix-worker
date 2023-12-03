@@ -242,7 +242,6 @@ function initDemo () {
 		gl.clear(gl.DEPTH_BUFFER_BIT | gl.COLOR_BUFFER_BIT);
 		gl.drawElements(gl.TRIANGLES, boxIndices.length, gl.UNSIGNED_SHORT, 0);
 
-		console.log()
 		requestAnimationFrame(loop);
 	};
 	requestAnimationFrame(loop);
