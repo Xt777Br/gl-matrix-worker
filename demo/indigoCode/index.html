@@ -11,10 +11,27 @@
 		<br />
 		<i>Demo is above this text</i>
 		<script id="worker">
-			importScripts("https://xt777br.github.io/gl-matrix-worker/dist/gl-matrix.js");
-			var gl; var canvas;
-			const glm = glmatrix();
-			var vertexShaderText = 
+var gl; var canvas; var glm;
+if( 'function' === typeof importScripts) {
+   importScripts("https://xt777br.github.io/gl-matrix-worker/dist/gl-matrix.js");
+	 glm = glmatrix();
+   addEventListener('message', onMessage);
+   function onMessage(e) { 
+     data = e.data
+     if(gl == undefined){
+        // Initialize on first message
+        console.log("Renderer Thread Initializing...");
+        canvas = data.canvas;
+        gl = canvas.getContext("webgl");
+        if(!gl) {console.error("RendererError: \n\nwebgl2 not supported!"); return -1;}
+				initDemo()
+    	}
+   }    
+}
+			
+
+
+var vertexShaderText = 
 [
 'precision mediump float;',
 '',
@@ -42,18 +59,6 @@ var fragmentShaderText =
 '  gl_FragColor = vec4(fragColor, 1.0);',
 '}'
 ].join('\n');
-
-onmessage = (e) => {
-    data = e.data
-    if(gl == undefined){
-        // Initialize on first message
-        console.log("Renderer Thread Initializing...");
-        canvas = data.canvas;
-        gl = canvas.getContext("webgl");
-        if(!gl) {console.error("RendererError: \n\nwebgl2 not supported!"); return -1;}
-	initDemo()
-    }
-}
 			
 function initDemo () {
 	console.log('This is working');
