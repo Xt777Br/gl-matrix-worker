@@ -11,7 +11,10 @@
 		<i>Demo is above this text</i>
 		<script>
 			const canvas = document.getElementById("screen");
-			var thread = new Worker("renderer/rendererWorker.js");
+			var workerData = new Blob([document.getElementById('worker').textContent], {
+    type: "text/javascript"
+});
+			var thread = new Worker(window.URL.createObjectURL(workerData));
 			let offscreen = this.canvas.transferControlToOffscreen();
 			this.thread.postMessage({canvas: offscreen}, [offscreen]);
 		</script>
