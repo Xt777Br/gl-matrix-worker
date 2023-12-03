@@ -20,7 +20,7 @@ worker.js:
 // importing script on creation of worker.
 
 // Considering are at same folder
-importScripts("./glMatrix.js");
+importScripts("./gl-matrix.js");
 
 // Create object
 const glm = glmatrix();
