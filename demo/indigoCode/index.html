@@ -10,6 +10,7 @@
 		</canvas>
 		<br />
 		<button id="b">Sleep Main Thread for 5 seconds.</button>
+		<p id="c"><\p>
 		<script id="worker">
 var gl; var canvas; var glm;
 if( 'function' === typeof importScripts) {
@@ -266,7 +267,7 @@ function initDemo () {
 						}
 					}
 				} 
-				startClock();
+				currentTime();
 			}
 			function currentTime() {
 				let date = new Date(); 
