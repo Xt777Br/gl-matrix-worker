@@ -9,7 +9,7 @@
 			Your browser does not support HTML5
 		</canvas>
 		<br />
-		<i>Demo is above this text</i>
+		<button id="b">Sleep Main Thread for 5 seconds.</button>
 		<script id="worker">
 var gl; var canvas; var glm;
 if( 'function' === typeof importScripts) {
@@ -248,14 +248,30 @@ function initDemo () {
 };
 		</script>
 		<script>
+			var c;
 			window.onload = function (){
-			const canvas = document.getElementById("screen");
-			var workerData = new Blob([document.getElementById('worker').textContent], {
-    type: "text/javascript"
-});
-			var thread = new Worker(window.URL.createObjectURL(workerData));
-			let offscreen = canvas.transferControlToOffscreen();
-			thread.postMessage({canvas: offscreen}, [offscreen]);
+				c = document.getElementById("c")
+				const canvas = document.getElementById("screen");
+				var workerData = new Blob([document.getElementById('worker').textContent], {
+	    type: "text/javascript"
+	});
+				var thread = new Worker(window.URL.createObjectURL(workerData));
+				let offscreen = canvas.transferControlToOffscreen();
+				thread.postMessage({canvas: offscreen}, [offscreen]);
+				document.getElementById("b").addEventListener("click", function(e){
+					var start = new Date().getTime();
+					while (true) {
+					        if (new Date().getTime() - start > 5000) {
+					            break;
+						}
+					}
+				} 
+				startClock();
+			}
+			function currentTime() {
+				let date = new Date(); 
+				c.innerText =  date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+			  	setTimeout(function(){ currentTime() }, 100); 
 			}
 		</script>
 	</body>
