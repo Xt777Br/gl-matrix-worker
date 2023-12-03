@@ -34,7 +34,7 @@ THE SOFTWARE.
  * @module glMatrix
  */
 // Configuration Constants
-let EPSILON = 0.000001;
+const EPSILON = 0.000001;
 let ARRAY_TYPE = typeof Float32Array !== "undefined" ? Float32Array : Array;
 let RANDOM = Math.random;
 let ANGLE_ORDER = "zyx";
@@ -47,7 +47,7 @@ let ANGLE_ORDER = "zyx";
 function setMatrixArrayType(type) {
     ARRAY_TYPE = type;
 }
-let degree = Math.PI / 180;
+const degree = Math.PI / 180;
 /**
  * Convert Degree To Radian
  *
@@ -7852,8 +7852,9 @@ function glmatrix(){
     quat2 : quat2,
     vec2 : vec2,
     vec3 : vec3,
-    vec4 : vec4
+    vec4 : vec4,
     }
 }
 
+//Object.defineProperty(glmat, '__esModule', { value: true });
 
