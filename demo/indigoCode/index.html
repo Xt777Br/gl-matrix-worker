@@ -216,7 +216,7 @@ function initDemo () {
 	var projMatrix = new Float32Array(16);
 	glm.mat4.identity(worldMatrix);
 	glm.mat4.lookAt(viewMatrix, [0, 0, -8], [0, 0, 0], [0, 1, 0]);
-	glm.mat4.perspective(projMatrix, glm.glMatrix.toRadian(45), canvas.clientWidth / canvas.clientHeight, 0.1, 1000.0);
+	glm.mat4.perspective(projMatrix, glm.glMatrix.toRadian(45), 800 / 600, 0.1, 1000.0);
 
 	gl.uniformMatrix4fv(matWorldUniformLocation, gl.FALSE, worldMatrix);
 	gl.uniformMatrix4fv(matViewUniformLocation, gl.FALSE, viewMatrix);
@@ -242,7 +242,7 @@ function initDemo () {
 		gl.clear(gl.DEPTH_BUFFER_BIT | gl.COLOR_BUFFER_BIT);
 		gl.drawElements(gl.TRIANGLES, boxIndices.length, gl.UNSIGNED_SHORT, 0);
 
-		console.log("a")
+		console.log()
 		requestAnimationFrame(loop);
 	};
 	requestAnimationFrame(loop);
