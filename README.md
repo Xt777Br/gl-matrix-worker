@@ -5,6 +5,11 @@ This fork are a solution for usage of glMatrix in Web Workers using the `importS
 ## How this work?
 Simple instead of exporting as a module are created a object like the module with methods.
 
+## Files Working:
+
+/dist/gl-matrix.js
+/dist/gl-matrix-min.js
+
 ## Usage:
 
 #### Example of Worker:
