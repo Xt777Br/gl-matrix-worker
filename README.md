@@ -1,6 +1,8 @@
 # glMatrix for Workers
 This fork are a solution for usage of glMatrix in Web Workers using the `importScripts()`
 
+Or just import gl-matrix inside of worker marked as "module" type.
+
 ## How this work?
 Simple, instead of exporting as a module are created a object like the module with methods.
 
